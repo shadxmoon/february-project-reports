@@ -51,3 +51,38 @@ form{
     padding-bottom: 6px;
     text-align: center;
 }
+.reports-section{
+    padding: 20px 200px;
+}
+.create-report{
+    padding: 8px;
+    border-radius: 5px;
+    font-size: 20px;
+}
+.grid-container{
+    margin-top: 45px;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 45px;
+}
+.card{
+    background-color: white;
+    font-size: 16px;
+    border-radius: 20px;
+    padding: 25px 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+.options{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.reports-header{
+    display: flex;
+    flex-direction: row;
+    padding: 10px 175px;
+    justify-content: space-between;
+    align-items: center;
+}
