@@ -1,0 +1,53 @@
+@import 'tailwindcss';
+
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../storage/framework/views/*.php';
+@source '../**/*.blade.php';
+@source '../**/*.js';
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
+        'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+body{
+    background-color: #DDE8FF;
+}
+.authorization-form-container{
+    background-color: white;
+}
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+.auth-container{
+    background-color: white;
+    padding: 50px;
+    border-radius: 50px;
+    width: 530px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.form-container{
+    width: 250px;
+}
+.form-input{
+    background-color: white;
+    border: 1px solid #051AFF;
+}
+.form-item{
+    border-radius: 5px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    padding-left: 15px;
+}
+.login-btn{
+    background-color: #051AFF;
+    color:white;
+    padding-left: 0;
+    padding-top: 8px;
+    padding-bottom: 6px;
+    text-align: center;
+}
