@@ -8,6 +8,8 @@
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
+    --color-brand: #809ff2;
+    --color-main-500: #bdd4ff;
 }
 
 body{
@@ -85,4 +87,7 @@ form{
     padding: 10px 175px;
     justify-content: space-between;
     align-items: center;
+}
+@theme{
+    --color-main-500: #c2cff2;
 }
