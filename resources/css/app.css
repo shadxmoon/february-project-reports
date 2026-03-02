@@ -8,14 +8,25 @@
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
-    --color-brand: #809ff2;
-    --color-main-500: #bdd4ff;
+    --color-main-100: oklch(92.9% 0.013 255.508);
+    --color-main-300: oklch(86.9% 0.022 252.894);
+    --color-main-400: oklch(70.4% 0.04 256.788);
+    --color-main-600: oklch(27.8% 0.033 256.848);
+    --color-main-900: oklch(20.8% 0.042 265.755);
+    --color-accent: oklch(82.8% 0.111 230.318);
 }
 
-body{
-    background-color: #DDE8FF;
-}
 .authorization-form-container{
+    background-color: white;
+}
+header{
+    border-bottom: 1px solid oklch(73.246% 0.05208 272.564);
+}
+button{
+    cursor: pointer;
+    border-radius: 5px;
+}
+button:hover{
     background-color: white;
 }
 form{
@@ -57,8 +68,9 @@ form{
     padding: 20px 200px;
 }
 .create-report{
-    padding: 8px;
-    border-radius: 5px;
+    text-align: center;
+    padding: 2px 8px;
+    border-radius: 15px;
     font-size: 20px;
 }
 .grid-container{
@@ -68,18 +80,25 @@ form{
     gap: 45px;
 }
 .card{
-    background-color: white;
     font-size: 16px;
+    padding: 5px;
     border-radius: 20px;
-    padding: 25px 20px;
     display: flex;
     flex-direction: column;
     gap: 15px;
+}
+.card-body{
+    border-radius: 15px;
+    padding: 12px 24px;
 }
 .options{
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    align-items: center;
+    padding-bottom: 15px;
+    border-radius: 10px;
+    border-bottom: 1px solid oklch(82.8% 0.111 230.318);
 }
 .reports-header{
     display: flex;
