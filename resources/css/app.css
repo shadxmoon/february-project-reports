@@ -8,23 +8,23 @@
 @theme {
     --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji',
         'Segoe UI Symbol', 'Noto Color Emoji';
-    --color-main-100: oklch(92.9% 0.013 255.508);
-    --color-main-300: oklch(86.9% 0.022 252.894);
-    --color-main-400: oklch(70.4% 0.04 256.788);
-    --color-main-600: oklch(27.8% 0.033 256.848);
-    --color-main-900: oklch(20.8% 0.042 265.755);
-    --color-accent: oklch(82.8% 0.111 230.318);
+    --color-main-100: oklch(96.7% 0.001 286.375);
+    --color-main-200: oklch(92% 0.004 286.32);
+    --color-main-300: oklch(87.1% 0.006 286.286);
+    --color-main-400: oklch(70.5% 0.015 286.067);
+    --color-main-500: oklch(55.2% 0.016 285.938);
+    --color-main-600: oklch(44.2% 0.017 285.786);
+    --color-main-700: oklch(37% 0.013 285.805);
+    --color-main-800: oklch(27.4% 0.006 286.033);
+    --color-main-900: oklch(21% 0.006 285.885);
+    --color-accent: oklch(62.2% 0.075 317.5);
 }
 
-.authorization-form-container{
-    background-color: white;
-}
-header{
-    border-bottom: 1px solid oklch(73.246% 0.05208 272.564);
-}
 button{
     cursor: pointer;
-    border-radius: 5px;
+}
+.average-button{
+    border-radius: 8px;
 }
 button:hover{
     background-color: white;
@@ -32,45 +32,34 @@ button:hover{
 form{
     display: flex;
     flex-direction: column;
-    gap: 35px;
+    gap: 18px;
 }
-.auth-container{
-    background-color: white;
-    padding: 50px;
-    border-radius: 50px;
-    width: 530px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+.hidden{
+    visibility: none;
 }
-.form-container{
-    width: 250px;
+a:hover{
+    color: black;
 }
 .form-input{
-    background-color: white;
-    border: 1px solid #051AFF;
-}
-.form-item{
-    border-radius: 5px;
-    padding-top: 8px;
-    padding-bottom: 8px;
+    background-color:oklch(96.7% 0.001 286.375);
+    padding: 12px 20px;
+    border-radius: 8px;
     padding-left: 15px;
 }
-.login-btn{
-    background-color: #051AFF;
-    color:white;
-    padding-left: 0;
-    padding-top: 8px;
-    padding-bottom: 6px;
-    text-align: center;
+.form-container{
+    width: 350px;
+    height: 250px;
+}
+.form-item{
+    border-radius: 8px;
+    padding-left: 15px;
 }
 .reports-section{
     padding: 20px 200px;
 }
 .create-report{
     text-align: center;
-    padding: 2px 8px;
-    border-radius: 15px;
+    border-radius: 25px;
     font-size: 20px;
 }
 .grid-container{
@@ -81,29 +70,33 @@ form{
 }
 .card{
     font-size: 16px;
-    padding: 5px;
+    padding: 12px;
     border-radius: 20px;
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 8px;
 }
 .card-body{
-    border-radius: 15px;
+    border-radius: 10px;
     padding: 12px 24px;
+    height: auto;
 }
 .options{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5px;
+    text-align: center;
     align-items: center;
-    padding-bottom: 15px;
     border-radius: 10px;
-    border-bottom: 1px solid oklch(82.8% 0.111 230.318);
+}
+.optn{
+    border-radius: 10px;
+    padding: 5px;
 }
 .reports-header{
     display: flex;
     flex-direction: row;
-    padding: 10px 175px;
+    padding: 18px 175px;
     justify-content: space-between;
     align-items: center;
 }

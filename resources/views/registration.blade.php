@@ -6,23 +6,30 @@
     <title>Document</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
-<body class="bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col">
-    <div class="auth-container">
-            <div class="form-container" style="margin-bottom: -20px;">
-                <h1 style="font-size: 48px; text-align: center; margin-left: -70px; margin-bottom: 15px; font-weight: 700; color: #051AFF;">НАРУШЕНИЙ<span style="color:red">.НЕТ<span></h1>
-                <p style="font-size: 32px; color: #051AFF; text-align: center; margin-bottom: 24px;">Регистрация</p>
+<body class="bg-main-800">
+    <a href="/reports">
+    <header class="reports-header bg-main-900">
+        <h1 class="font-bold text-main-100 cursor-pointer" style="font-size: 48px;">нарушений<span class="text-accent">.net<span></h1>
+        <h3 style="font-size: 18px;" class="font-bold">носова ольга бедросовна</h3>
+    </header>        
+    </a>
+    <main class="flex items-center justify-center mt-30 flex-col">
+        <h1 class="text-main-100 text-center text-4xl mb-2.5">Регистрация</h1>
+        <div class="bg-main-300 px-4 py-3 rounded-2xl size-1/5">
+            <div class="flex flex-col gap-1.5">    
                 <form action="">
-                    <input type="text" name="login" placeholder="логин" class="form-input form-item">
-                    <input type="text" name="password" placeholder="пароль" class="form-input form-item"> 
-                    <input type="text" name="password" placeholder="фамилия" class="form-input form-item"> 
-                    <input type="text" name="password" placeholder="имя" class="form-input form-item"> 
-                    <input type="text" name="password" placeholder="отчество" class="form-input form-item"> 
-                    <input type="text" name="password" placeholder="телефон" class="form-input form-item">
-                    <input type="text" name="password" placeholder="адрес" class="form-input form-item">  
-                    <button class="login-btn form-item" style="margin-top: -3px; font-size: 20px;">создать аккаунт</button>
-                    <span style="text-align:center; margin-top: -20px; font-size: 18px;">У вас уже есть аккаунт? <a href="/" style="color: #051AFF;">Войти</a></span>
+                    <input type="text" name="login" placeholder="логин" class="form-input">
+                    <input type="text" name="password" placeholder="пароль" class="form-input"> 
+                    <input type="text" name="lastname" placeholder="фамилия" class="form-input"> 
+                    <input type="text" name="firstname" placeholder="имя" class="form-input"> 
+                    <input type="text" name="middlename" placeholder="отчество" class="form-input"> 
+                    <input type="text" name="phone" placeholder="телефон" class="form-input">
+                    <input type="text" name="address" placeholder="адрес" class="form-input">  
+                    <button class="bg-accent text-main-900 px-2 py-2 rounded-xl text-xl">создать аккаунт</button>
+                    <span class="text-center">У вас уже есть аккаунт? <a href="/" class="text-accent">Войти</a></span>
                 </form>
             </div>                 
-        </div>
+        </div>        
+    </main>
 </body>
 </html>

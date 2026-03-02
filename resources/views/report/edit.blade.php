@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Редактирование заявления</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-main-800">
@@ -19,14 +19,15 @@
         </div>
     </header>
     <main class="flex items-center justify-center mt-60 flex-col">
-        <h1 class="text-main-100 text-3xl mb-5">Создание заявления</h1>
+        <h1 class="text-main-100 text-3xl mb-5">Редактирование заявления</h1>
         <div class="bg-main-300 px-7 py-7 rounded-2xl">
             <div class="form-container">
-                <form method="POST" action="{{route('report.store')}}">
+                <form method="POST" action="{{ route('report.update', ['report'=>$report]) }}">
                     @csrf
-                    <input type="text" name="number" placeholder="Номер авто" class="bg-main-100 form-item px-5 py-3">
-                    <textarea class="bg-main-100 form-item px-5 py-3" rows="4" name="description" placeholder="Описание"></textarea>
-                    <button class="bg-accent text-main-900 px-2 py-2 rounded-xl text-xl">Отправить</button>
+                    @method('put')
+                    <input type="text" name="number" value='{{ $report->number }}' class="bg-main-100 form-item px-5 py-3" required>
+                    <textarea class="bg-main-100 form-item px-5 py-3" rows="4" name="description" required>{{ $report->description }}</textarea>
+                    <button class="bg-accent text-main-900 px-2 py-2 rounded-xl text-xl">Обновить</button>
                 </form>
             </div>
         </div>

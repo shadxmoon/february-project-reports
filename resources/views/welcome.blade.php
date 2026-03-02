@@ -19,8 +19,8 @@
             </style>
         @endif
     </head>
-    <body class="bg-[#FDFDFC] dark:bg-[#0a0a0a] text-[#1b1b18] flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col">
-        <header class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6 not-has-[nav]:hidden">
+    <body class="bg-main-800 flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col">
+        <div class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6 not-has-[nav]:hidden">
             @if (Route::has('login'))
                 <nav class="flex items-center justify-end gap-4">
                     @auth
@@ -48,16 +48,16 @@
                     @endauth
                 </nav>
             @endif
-        </header>
-        <div class="auth-container">
-            <div class="form-container">
-                <h1 style="font-size: 48px; text-align: center; margin-left: -70px; margin-bottom: 15px; font-weight: 700; color: #051AFF;">НАРУШЕНИЙ<span style="color:red">.НЕТ<span></h1>
-                <p style="font-size: 32px; color: #051AFF; text-align: center; margin-bottom: 24px;">Авторизация</p>
+        </div>
+            <h1 class="font-bold text-main-100 cursor-pointer mb-5 text-5xl">нарушений<span class="text-accent">.net<span></h1> 
+        <div class="auth-container size-1/5">
+            <p class="text-main-100 text-2xl text-center mb-4">Авторизация</p>
+            <div class=" bg-main-300 px-4 py-4 rounded-2xl">
                 <form action="">
-                    <input type="text" name="login" placeholder="логин" class="form-input form-item">
-                    <input type="text" name="password" placeholder="пароль" class="form-input form-item"> 
-                    <button class="login-btn form-item" style="margin-top: -3px; font-size: 20px;">войти</button>
-                    <a href="/registration" style="color: #051AFF; text-align:center; margin-top: -20px; margin-bottom: 20px; font-size: 18px;">Зарегистрироваться</a>
+                    <input type="text" name="login" placeholder="Логин" class="form-input">
+                    <input type="text" name="password" placeholder="Пароль" class="form-input"> 
+                    <button class="bg-accent text-center text-lg rounded-lg px-1.5 py-1.5">Войти</button>
+                    <span class="text-center">Нет аккаунта? <a href="/registration" class="text-accent text-center">Зарегистрироваться</a></span>
                 </form>
             </div>                 
         </div>

@@ -10,4 +10,8 @@ class Report extends Model
     use SoftDeletes;
     protected $guarded = [];
     protected $fillable = ['number', 'description'];
+    
+    public function status(){
+        return $this->belongsTo(Status::class);
+    }
 }
