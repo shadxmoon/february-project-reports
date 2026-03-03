@@ -7,14 +7,9 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 <body class="bg-main-800">
-    <a href="/reports">
-    <header class="reports-header bg-main-900">
-        <h1 class="font-bold text-main-100 cursor-pointer" style="font-size: 48px;">нарушений<span class="text-accent">.net<span></h1>
-        <h3 style="font-size: 18px;" class="font-bold">носова ольга бедросовна</h3>
-    </header>        
-    </a>
     <main class="flex items-center justify-center mt-30 flex-col">
-        <h1 class="text-main-100 text-center text-4xl mb-2.5">Регистрация</h1>
+        <h1 class="font-bold text-main-100 cursor-pointer text-5xl mb-5">нарушений<span class="text-accent">.net<span></h1>
+        <h1 class="text-main-100 text-center text-2xl mb-2.5">Регистрация</h1>
         <div class="bg-main-300 px-4 py-3 rounded-2xl size-1/5">
             <div class="flex flex-col gap-1.5">    
                 <form action="">

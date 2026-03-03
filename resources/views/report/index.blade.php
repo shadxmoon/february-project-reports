@@ -18,21 +18,23 @@
             </h3>                
         </div>
     </header>
-    <main class="reports-section mt-3">
-        <button class="create-report bg-accent text-black py-1 px-3">
-            <a href="/reports/create">
-                создать заявление
-            </a>
-        </button>
-        <div class="grid grid-cols-3 gap-11 auto-rows-fr mb-11 mt-10">
+    <main class="px-5 mt-3 xl:px-24 xl:py-5 xl:mt-3 lg:px-11 lg:py-3 md:px-9 md:py-6">
+        <div class="flex items-center justify-center md:justify-normal">
+            <button class="create-report bg-accent text-black py-1 px-3">
+                <a href="/reports/create">
+                    создать заявление
+                </a>
+            </button>  
+        </div>
+        <div class="grid grid-cols-2 gap-2.5 mt-4 xl:grid 2xl:grid-cols-4 xl:gap-8 xl:auto-rows-fr xl:grid-cols-3 xl:mb-11 xl:mt-10 lg:gap-8 lg:mb-8 lg:grid-cols-3 lg:mt-8 md:grid md:grid-cols-2 md:gap-5 md:mt-6">
              @foreach ($reports as $report)
             <div class="card flex flex-col gap-2.5 h-full bg-main-300">
                 <div class="options justify-self-start">
-                    <div class="optn bg-main-100">
+                    <div class="optn h-full text-center bg-main-100">
                         <span>номер авто</span>
                         <p class="font-bold text-main-900">{{$report->number}}</p>                         
                     </div>
-                    <div class="optn bg-main-100">
+                    <div class="optn h-full text-center bg-main-100">
                         <span>дата создания</span>
                         <p class="text-main-900 font-bold">{{$report->created_at}}</p>              
                     </div>
