@@ -86,6 +86,9 @@ a:hover{
     border-radius: 10px;
     padding: 5px;
 }
+.option-link:hover{
+    color: oklch(83.32% 0.04825 318.191);
+}
 .reports-header{
     display: flex;
     flex-direction: row;
