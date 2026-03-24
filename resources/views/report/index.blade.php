@@ -1,23 +1,4 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    @vite(['resources/css/app.css', 'resources/js/app.js'])
-</head>
-<body class="bg-main-800">
-    <header class="reports-header bg-main-900">
-        <a href="/reports">
-            <h1 class="font-bold text-main-100 cursor-pointer text-5xl">нарушений<span class="text-accent">.net<span></h1>
-        </a>
-        <div>
-            <h3 class="text-lg text-main-200 flex flex-row gap-2.5 items-center justify-center">
-                {{ Auth::user()->name }}
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="size-6"><path fill-rule="evenodd" d="M7.5 6a4.5 4.5 0 1 1 9 0 4.5 4.5 0 0 1-9 0ZM3.751 20.105a8.25 8.25 0 0 1 16.498 0 .75.75 0 0 1-.437.695A18.683 18.683 0 0 1 12 22.5c-2.786 0-5.433-.608-7.812-1.7a.75.75 0 0 1-.437-.695Z" clip-rule="evenodd" /></svg>
-            </h3>                
-        </div>
-    </header>
+<x-app-layout>
     <main class="px-5 mt-3 xl:px-24 xl:py-5 xl:mt-3 lg:px-11 lg:py-3 md:px-9 md:py-6">
         <div class="flex flex-row justify-between">
             <div class="flex items-center justify-center md:justify-normal">
@@ -29,24 +10,23 @@
             </div>
             <div class="flex flex-row gap-5">
                 <div class="text-center">
-                <span class="text-main-200 text-center">сортировка по статусу</span>
-                <ul class="flex flex-row gap-5 items-center">
-                    @foreach ($statuses as $status)
+                    <span class="text-main-200 text-center">сортировка по статусу</span>
+                    <ul class="flex flex-row gap-5 items-center">
+                        @foreach ($statuses as $status)
                         <li>
                             <a href="{{ route('report.index', [ 'sort' => $sort, 'status' => $status->id]) }}" class="option-link text-main-400">{{ $status->name }}</a>
                         </li>
-                    @endforeach
-                </ul>
-            </div>  
-            <div class="text-center">
-                <span class="text-main-200">сортировка по дате создания</span>
-                <div class="flex flex-row gap-5 items-center">
-                    <a href="{{ route('report.index', ['sort' => 'desc', 'status' => $status]) }}" class=" option-link text-main-400">сначала новые</a>
-                    <a href="{{ route('report.index', ['sort' => 'asc', 'status' => $status]) }}" class="option-link text-main-400">сначала старые</a>
+                        @endforeach
+                    </ul>
                 </div>
-            </div>     
+                <div class="text-center">
+                    <span class="text-main-200">сортировка по дате создания</span>
+                    <div class="flex flex-row gap-5 items-center">
+                        <a href="{{ route('report.index', ['sort' => 'desc', 'status' => $status]) }}" class=" option-link text-main-400">сначала новые</a>
+                        <a href="{{ route('report.index', ['sort' => 'asc', 'status' => $status]) }}" class="option-link text-main-400">сначала старые</a>
+                    </div>
+                </div>
             </div>
-
         </div>
 
         <div class="grid grid-cols-2 gap-2.5 mt-4 xl:grid 2xl:grid-cols-4 xl:gap-8 xl:auto-rows-fr xl:grid-cols-3 xl:mb-11 xl:mt-10 lg:gap-8 lg:mb-8 lg:grid-cols-3 lg:mt-8 md:grid md:grid-cols-2 md:gap-5 md:mt-6">
@@ -85,5 +65,4 @@
             {{ $reports->links() }}           
         </div>
     </main>
-</body>
-</html>
+</x-app-layout>
