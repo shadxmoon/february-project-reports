@@ -1,1 +1,3 @@
-<h1 class="font-bold text-main-100 cursor-pointer text-5xl">нарушений<span class="text-accent">.net<span></h1>
+<a href="{{ route('report.index') }}">
+   <h1 class="font-bold text-main-100 cursor-pointer text-5xl">нарушений<span class="text-accent">.net<span></h1> 
+</a>

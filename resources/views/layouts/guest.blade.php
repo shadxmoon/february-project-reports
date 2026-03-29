@@ -14,11 +14,18 @@
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
     </head>
-    <body class="font-sans antialiased bg-main-800 flex p-5 lg:p-8 items-center lg:justify-center min-h-screen flex-col">  
-        <div class="min-h-screen flex flex-col sm:justify-center sm:pt-0">
-            <div class="bg-main-300 rounded-2xl px-5 py-4">
-                {{ $slot }}
-            </div>
+    <body class="font-sans antialiased bg-main-800 flex p-5 lg:p-8 items-center lg:justify-center min-h-screen flex-col">
+          
+            <div class="min-h-screen flex flex-col sm:justify-center sm:pt-0">
+                <h1 class="font-bold text-main-100 cursor-pointer text-5xl mb-5">нарушений<span class="text-accent">.net<span></h1>
+                @isset($title)
+                    <h2 class="text-main-100 text-2xl mb-4 text-center">{{ $title }}</h2>
+                @endisset
+                <div class="bg-main-300 rounded-2xl px-5 py-4">
+                    {{ $slot }}
+                </div>
+            </div>  
         </div>
+        
     </body>
 </html>

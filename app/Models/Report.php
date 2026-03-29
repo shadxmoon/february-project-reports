@@ -12,7 +12,7 @@ class Report extends Model
     use SoftDeletes, HasFactory;
     
     protected $guarded = [];
-    protected $fillable = ['number', 'description'];
+    protected $fillable = ['number', 'description', 'user_id', 'status_id'];
     
     public function status(): BelongsTo
     {

@@ -1,17 +1,16 @@
 <x-guest-layout>
-<!-- Session Status -->
+    <x-slot name="title">Авторизация</x-slot>
+
     <x-auth-session-status class="mb-3" :status="session('status')" />
     <form method="POST" action="{{ route('login') }}" class="bg-main-300 rounded-3xl">
         @csrf
 
-        <!-- login Address -->
         <div>
             <x-input-label for="login" :value="__('Логин')"/>
             <x-text-input id="login" class="block mt-1 w-full form-input" type="login" name="login" :value="old('login')" required autofocus autocomplete="username" />
             <x-input-error :messages="$errors->get('login')" class="mt-2" />
         </div>
 
-        <!-- Password -->
         <div class="mt-2">
             <x-input-label for="password" :value="__('Пароль')" />
 
@@ -23,7 +22,6 @@
             <x-input-error :messages="$errors->get('password')" class="mt-2" />
         </div>
 
-        <!-- Remember Me -->
         <div class="block mt-2">
             <label for="remember_me" class="inline-flex items-center">
                 <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">

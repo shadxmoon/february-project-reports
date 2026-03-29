@@ -1,7 +1,9 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReportController;
+use App\Http\Middleware\Admin;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -32,3 +34,8 @@ Route::get('/reports/{report}/edit', [ReportController::class, 'edit'])->name('r
 Route::put('/reports/{report}', [ReportController::class, 'update'])
             ->name('report.update');
 require __DIR__.'/auth.php';
+
+Route::middleware((Admin::class))->group(function(){
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin.index');
+    Route::patch('/reports/status/{report}/', [AdminController::class, 'statusUpdate'])->name('reports.status.update');
+});

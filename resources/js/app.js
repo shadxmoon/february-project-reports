@@ -5,3 +5,9 @@ import Alpine from 'alpinejs';
 window.Alpine = Alpine;
 
 Alpine.start();
+
+const selectElements = document.querySelectorAll('.status-form #status_id');
+
+for (let elem in selectElements){
+    elem.addEventListener('change', function() {this.form.submit()});
+}

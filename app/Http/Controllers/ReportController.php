@@ -48,6 +48,8 @@ class ReportController extends Controller
                 'description'=>'string'
             ]
         );
+        $data['user_id'] = Auth::user()->id;
+        $data['status_id'] = 1;
         Report::create($data);
         return redirect('reports');
     }
@@ -71,5 +73,12 @@ class ReportController extends Controller
         $data['status_id'] = 1;
         $report->update($data); //создаем новую запись в БД
         return redirect()->route('report.index');
+    }
+
+    public function statusUpdate(Request $request, Report $report){
+        $request->validate([
+            'status_id' => 'required|exists:statuses,id'
+        ]);
+        $report->update($request->only('status_id'));
     }
 }
