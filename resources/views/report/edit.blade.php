@@ -1,5 +1,5 @@
-<x-app-layout>
-<body class="bg-main-800">
+<x-main-layout>
+    <x-slot:title>Редактирование заявления</x-slot:title>
     <main class="flex items-center justify-center mt-60 flex-col">
         <h1 class="text-main-100 text-3xl mb-5">Редактирование заявления</h1>
         <div class="bg-main-300 px-7 py-7 rounded-2xl">
@@ -14,5 +14,4 @@
             </div>
         </div>
     </main>
-</body>
-</x-app-layout>
+</x-main-layout>

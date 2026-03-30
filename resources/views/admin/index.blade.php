@@ -1,4 +1,5 @@
-<x-app-layout>
+<x-main-layout>
+    <x-slot:title>Административная панель</x-slot:title>
     <h1 class="text-main-200 text-2xl text-center mb-5 mt-5">Административная панель</h1>
     @if (session('error'))
     <div class="text-main-300 text-center mb-5 bg-main-600 py-2">
@@ -59,4 +60,4 @@
         </div>
         
     </div>
-</x-app-layout>
+</x-main-layout>

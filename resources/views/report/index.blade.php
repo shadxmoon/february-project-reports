@@ -1,4 +1,5 @@
-<x-app-layout>
+<x-main-layout>
+    <x-slot:title>Заявления</x-slot:title>
     <main class="px-5 mt-3 xl:px-24 xl:py-5 xl:mt-3 lg:px-11 lg:py-3 md:px-9 md:py-6">
         <div class="flex flex-row justify-between">
             <div class="flex items-center justify-center md:justify-normal">
@@ -65,4 +66,4 @@
             {{ $reports->links() }}           
         </div>
     </main>
-</x-app-layout>
+</x-main-layout>

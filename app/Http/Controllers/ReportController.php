@@ -65,14 +65,20 @@ class ReportController extends Controller
        
     }
     public function update(Request $request, Report $report){
-        $data = $request->validate([
+        if (Auth::user()->id === $report->user_id)
+        {
+           $data = $request->validate([
             'number' => 'string|required|max:255',
-            'description' => 'string|required'
-        ]); //валидация
-        $data['user_id'] = Auth::user()->id;
-        $data['status_id'] = 1;
-        $report->update($data); //создаем новую запись в БД
-        return redirect()->route('report.index');
+            'description' => 'string|required']);
+            $data['user_id'] = Auth::user()->id;
+            $data['status_id'] = 1;
+            $report->update($data);
+            return redirect()->route('report.index');
+        }
+        else{
+            abort(403, 'у вас нет прав на действия с этим заявлением.');
+        }
+       
     }
 
     public function statusUpdate(Request $request, Report $report){
