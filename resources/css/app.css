@@ -26,8 +26,9 @@ button{
 .average-button{
     border-radius: 8px;
 }
-button:hover{
+button:hover, .average-button:hover{
     background-color: white;
+    transition: 0.3s ease-in-out;
 }
 form{
     display: flex;
@@ -39,6 +40,7 @@ form{
 }
 a:hover{
     color: black;
+    transition: 0.3s ease-in-out;
 }
 .form-input{
     background-color:oklch(96.7% 0.001 286.375);
@@ -87,7 +89,8 @@ a:hover{
     padding: 5px;
 }
 .option-link:hover{
-    color: oklch(83.32% 0.04825 318.191);
+    color: oklch(80.869% 0.09642 318.162);
+    transition: 0.3s ease-in-out;
 }
 .reports-header{
     display: flex;

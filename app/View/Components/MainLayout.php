@@ -11,5 +11,4 @@ class MainLayout extends Component
     {
         return view('layouts.main');
     }
-
 }

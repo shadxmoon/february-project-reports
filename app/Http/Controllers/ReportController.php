@@ -37,9 +37,10 @@ class ReportController extends Controller
 
         return view('report.index', compact('reports', 'statuses', 'sort', 'status'));
     }
+
     public function destroy(Report $report){
         $report->delete();
-        return redirect()->back();
+        return redirect()->back()->with('info', 'Заявление удалено');
     }
     public function store(Request $request, Report $report){
         $data = $request->validate(
@@ -51,7 +52,7 @@ class ReportController extends Controller
         $data['user_id'] = Auth::user()->id;
         $data['status_id'] = 1;
         Report::create($data);
-        return redirect('reports');
+        return redirect('reports')->with('info', 'Заявление успешно отправлено');
     }
     public function edit(Request $request, Report $report){
         if(Auth::user()->id === $report->user_id)

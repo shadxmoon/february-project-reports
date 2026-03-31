@@ -6,7 +6,7 @@
             <div class="form-container">
                 <form method="POST" action="{{route('report.store')}}">
                     @csrf
-                    <input type="text" name="number" placeholder="Номер авто" class="bg-main-100 form-item px-5 py-3">
+                    <x-car-input type="text" name="number" placeholder="Номер авто"></x-car-input>
                     <textarea class="bg-main-100 form-item px-5 py-3" rows="4" name="description" placeholder="Описание"></textarea>
                     <button class="bg-accent text-main-900 px-2 py-2 rounded-xl text-xl">Отправить</button>
                 </form>

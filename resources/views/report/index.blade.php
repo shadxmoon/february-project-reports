@@ -1,5 +1,6 @@
 <x-main-layout>
     <x-slot:title>Заявления</x-slot:title>
+    @include('layouts.flash-messages')
     <main class="px-5 mt-3 xl:px-24 xl:py-5 xl:mt-3 lg:px-11 lg:py-3 md:px-9 md:py-6">
         <div class="flex flex-row justify-between">
             <div class="flex items-center justify-center md:justify-normal">
@@ -9,9 +10,9 @@
                     </a>
                 </button>
             </div>
-            
+            <x-filter :sort=$sort :status=$status></x-filter>
         </div>
-        <x-filter :sort=$sort :status=$status></x-filter>
+        
         <div class="grid grid-cols-2 gap-2.5 mt-4 xl:grid 2xl:grid-cols-4 xl:gap-8 xl:auto-rows-fr xl:grid-cols-3 xl:mb-11 xl:mt-10 lg:gap-8 lg:mb-8 lg:grid-cols-3 lg:mt-8 md:grid md:grid-cols-2 md:gap-5 md:mt-6">
              @foreach ($reports as $report)
             <div class="card flex flex-col gap-2.5 h-full bg-main-300">
@@ -34,7 +35,7 @@
                         <form action="{{route('report.destroy', $report->id)}}" method="POST">
                             @method('delete')
                             @csrf
-                            <button class="average-button bg-accent text-black px-2 py-2 rounded-4">
+                            <button class="average-button bg-accent text-black px-2 py-2 rounded-4" id="btn-delete" onClick="btnDeleteAction">
                                 <input type="submit" value="удалить">                              
                             </button>
                         </form>

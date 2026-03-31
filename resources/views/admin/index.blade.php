@@ -2,15 +2,10 @@
     <x-slot:title>Административная панель</x-slot:title>
     <h1 class="text-main-200 text-2xl text-center mb-5 mt-5">Административная панель</h1>
     @if (session('error'))
-    <div class="text-main-300 text-center mb-5 bg-main-600 py-2">
-        <h2 class="text-main-200">Ошибка</h2>
-        {{ session('error') }}
-    </div>
+        @include('layouts.flash-messages')
     @endif
     @if (session('success'))
-    <div class="text-main-200 text-center mb-5 bg-main-600 py-2">
-        {{ session('success') }}
-    </div>
+        @include('layouts.flash-messages')
     @endif
     <div class="grid grid-cols-4 text-main-300 gap-5 px-14">
         <div class="flex flex-col gap-2">

@@ -62,7 +62,14 @@
                 {{ __('Dashboard') }}
             </x-responsive-nav-link>
         </div>
-
+        <div>
+            <x-responsive-nav-link :href="route('report.index')" :active="request()->routeIs('report.index')">
+                Список заявлений
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('report.create')" :active="request()->routeIs('report.create')">
+                Создание заявления
+            </x-responsive-nav-link>
+        </div>
         <!-- Responsive Settings Options -->
         <div class="pt-4 pb-1 border-t border-gray-200">
             <div class="px-4">
