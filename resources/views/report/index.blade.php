@@ -16,18 +16,23 @@
         
         <div class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
              @foreach ($reports as $report)
-            <div class="card flex flex-col gap-2.5 h-full bg-main-300">
+            <div class="card flex flex-col gap-2 h-full bg-main-300">
                 <div class="justify-self-start grid grid-cols-2 gap-2">
                     <div class="optn h-full text-center flex flex-col justify-center p-2 bg-main-100">
                         <span>номер авто</span>
                         <p class=" text-main-900 font-semibold">{{$report->number}}</p>                         
                     </div>
-                    <div class="optn h-full text-center flex flex-col justify-center bg-main-100">
+                    <div class="optn h-full text-center px-3 flex flex-col justify-center bg-main-100">
                         <span>дата создания</span>
                         <p class="text-main-900 font-semibold">{{ \Carbon\Carbon::parse($report->created_at)->translatedFormat('j F Y h:i');}}</p>              
                     </div>
                 </div>
-                <div class="card-body flex-1 bg-white">
+                <div>
+                    @isset($report->path_img)
+                        <img src="{{ Storage::url($report->path_img) }}" alt="Фото заявления" class="w-full h-auto rounded-lg cursor-pointer hover:scale-102 transition-transform duration-300 hover:shadow-2xl" onclick="window.open(this.src, '_blank')" >
+                    @endisset
+                </div>
+                <div class="card-body flex-1 min-h-[85px] bg-white">
                     <p>{{$report->description}}</p>
                 </div>
                 <div class="justify-self-end flex flex-col gap-2">

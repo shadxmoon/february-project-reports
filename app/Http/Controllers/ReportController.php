@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Report;
 use App\Models\Status;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ReportController extends Controller
 {
@@ -42,15 +43,24 @@ class ReportController extends Controller
         $report->delete();
         return redirect()->back()->with('info', 'Заявление удалено');
     }
-    public function store(Request $request, Report $report){
+    public function store(Request $request){
         $data = $request->validate(
             [
                 'number'=>'string',
-                'description'=>'string'
+                'description'=>'string',
+                'path_img' => 'image|mimes:jpeg,png,jpg,gif|max:2048'
             ]
         );
+
+        if ($request->hasFile('path_img')) {
+
+            $imageName = Storage::disk('public')->put('images', $request->file('path_img'));
+            $data['path_img'] = $imageName;
+        }
+        
         $data['user_id'] = Auth::user()->id;
         $data['status_id'] = 1;
+
         Report::create($data);
         return redirect('reports')->with('info', 'Заявление успешно отправлено');
     }

@@ -12,7 +12,7 @@
     </header>
     @include('layouts.flash-messages')
     
-    <main class="flex-1 mx-auto max-w-full mt-3 xl:py-5 lg:py-3 md:py-6 ">
+    <main class="flex-1 mx-auto max-w-full mt-3 xl:py-5 lg:py-3 md:py-6 px-11 ">
         {{ $slot }}
     </main>
     <footer>

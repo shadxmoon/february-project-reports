@@ -63,11 +63,8 @@ a:hover{
 }
 .card{
     font-size: 16px;
-    padding: 12px;
+    padding: 15px;
     border-radius: 20px;
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
 }
 .card-body{
     border-radius: 10px;
