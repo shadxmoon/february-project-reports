@@ -18,6 +18,7 @@
     --color-main-800: oklch(27.4% 0.006 286.033);
     --color-main-900: oklch(21% 0.006 285.885);
     --color-accent: oklch(62.2% 0.075 317.5);
+    --color-soft-accent: oklch(76.244% 0.04222 316.887);
 }
 
 button{
@@ -47,10 +48,6 @@ a:hover{
     padding: 12px 20px;
     border-radius: 8px;
     padding-left: 15px;
-}
-.form-container{
-    width: 350px;
-    height: 250px;
 }
 .form-item{
     border-radius: 8px;
@@ -86,7 +83,6 @@ a:hover{
 }
 .optn{
     border-radius: 10px;
-    padding: 5px;
 }
 .option-link:hover{
     color: oklch(80.869% 0.09642 318.162);
