@@ -17,24 +17,36 @@
     --color-main-700: oklch(37% 0.013 285.805);
     --color-main-800: oklch(27.4% 0.006 286.033);
     --color-main-900: oklch(21% 0.006 285.885);
-    --color-accent: oklch(62.2% 0.075 317.5);
-    --color-soft-accent: oklch(76.244% 0.04222 316.887);
+    --color-accent: oklch(63.567% 0.10095 317.445);
+    --color-soft-accent: oklch(72.463% 0.09647 317.33);
+    --color-transparent-accent: oklch(63.567% 0.10095 317.445 / 0.658);
 }
 
 button{
     cursor: pointer;
 }
+.read-more-btn{
+    filter: none;
+}
 .average-button{
     border-radius: 8px;
 }
-button:hover, .average-button:hover{
-    background-color: white;
-    transition: 0.3s ease-in-out;
+.average-button:hover{
+    background-color: oklch(72.463% 0.09647 317.33);
+    transform: scale(1.02);
+    transition: 0.2s ease-in-out;
 }
 form{
     display: flex;
     flex-direction: column;
     gap: 18px;
+}
+.description-clamp{
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 .hidden{
     visibility: none;
@@ -65,6 +77,32 @@ a:hover{
     font-size: 16px;
     padding: 15px;
     border-radius: 20px;
+}
+.modal-card{
+    animation: appearing 0.5s ease-in-out;
+}
+.closing-card{
+    animation: disappearing 0.5s ease-in-out;
+}
+@keyframes appearing {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }   
+}
+@keyframes disappearing {
+    from{
+        opacity: 1;
+        transform: translateY(0);
+    }
+    to{
+        opacity: 0;
+        transform: translateY(-50px);
+    }
 }
 .card-body{
     border-radius: 10px;

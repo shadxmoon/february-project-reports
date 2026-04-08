@@ -80,9 +80,21 @@ class ReportController extends Controller
         {
            $data = $request->validate([
             'number' => 'string|required|max:255',
-            'description' => 'string|required']);
+            'description' => 'string|required',
+            'path_img' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048']);
+
+            $imageName = $report->path_img;
+            if ($request->hasFile('path_img')) {
+                if ($imageName) {
+                    Storage::disk('public')->delete($imageName);
+                }
+
+                $imageName = Storage::disk('public')->put('images', $request->file('path_img'));
+            }
+
             $data['user_id'] = Auth::user()->id;
             $data['status_id'] = 1;
+            $data['path_img'] = $imageName;
             $report->update($data);
             return redirect()->route('report.index');
         }

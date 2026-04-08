@@ -20,28 +20,32 @@
         @endif
     </head>
     <body class="bg-main-800 flex p-6 lg:p-8 items-center lg:justify-center min-h-screen flex-col">
-        <div class="w-full lg:max-w-4xl max-w-[335px] text-sm mb-6 not-has-[nav]:hidden">
-            @if (Route::has('login'))
-                <nav class="flex items-center justify-end gap-4">
-                    @auth
+            <h1 class="font-bold text-main-100 cursor-pointer mb-5 text-7xl">нарушений<span class="text-accent">.net<span></h1> 
+                <div class="flex flex-col items-center gap-6">
+                    <h2 class="text-main-400 text-xl">Подайте заявление о нарушении правил дорожного движения</h2>
+                    <div class=" flex flex-row items-center not-has-[nav]:hidden">
+                        @if (Route::has('login'))
+                        <nav class="flex items-center gap-4">
+                            @auth
                         <a
                             href="{{ url('/dashboard') }}"
-                            class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal"
-                        >
+                            class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-md text-sm leading-normal"
+                            >
                             Dashboard
                         </a>
-                    @else
+                        @else
                         <a
                             href="{{ route('login') }}"
-                            class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] text-[#1b1b18] border border-transparent hover:border-[#19140035] dark:hover:border-[#3E3E3A] rounded-sm text-sm leading-normal"
+                            class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] bg-accent hover:bg-transparent hover:border-transparent-accent border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-md text-md leading-normal"
                         >
                             Log in
                         </a>
+                        
 
                         @if (Route::has('register'))
                             <a
                                 href="{{ route('register') }}"
-                                class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] hover:border-[#1915014a] border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-sm text-sm leading-normal">
+                                class="inline-block px-5 py-1.5 dark:text-[#EDEDEC] border-[#19140035] bg-accent hover:bg-transparent hover:border-transparent-accent border text-[#1b1b18] dark:border-[#3E3E3A] dark:hover:border-[#62605b] rounded-md text-md leading-normal">
                                 Register
                             </a>
                         @endif
@@ -49,18 +53,8 @@
                 </nav>
             @endif
         </div>
-            <h1 class="font-bold text-main-100 cursor-pointer mb-5 text-5xl">нарушений<span class="text-accent">.net<span></h1> 
-        <div class="auth-container size-1/5">
-            <p class="text-main-100 text-2xl text-center mb-4">Авторизация</p>
-            <div class=" bg-main-300 px-4 py-4 rounded-2xl">
-                <form action="">
-                    <input type="text" name="login" placeholder="Логин" class="form-input">
-                    <input type="text" name="password" placeholder="Пароль" class="form-input"> 
-                    <button class="bg-accent text-center text-lg rounded-lg px-1.5 py-1.5">Войти</button>
-                    <span class="text-center">Нет аккаунта? <a href="/registration" class="text-accent text-center">Зарегистрироваться</a></span>
-                </form>
-            </div>                 
-        </div>
+                </div>
+                
 
         @if (Route::has('login'))
             <div class="h-14.5 hidden lg:block"></div>
