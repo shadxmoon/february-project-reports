@@ -6,8 +6,10 @@
             <div>
                 <form class="w-full" method="POST" action="{{route('report.store')}}" enctype="multipart/form-data">
                     @csrf
-                    <x-car-input class="w-full" type="text" name="number" placeholder="Номер авто" />
-                    <textarea class="w-full bg-main-100 form-item px-5 py-3" rows="4" name="description" placeholder="Описание"></textarea>
+                    <x-car-input class="w-full" type="text" name="number" placeholder="Номер авто" :value="old('number')" />
+                    <x-input-error :messages="$errors->get('number')" class="mt-2 text-main-300" />
+                    <textarea class="w-full bg-main-100 form-item px-5 py-3" rows="4" name="description" placeholder="Описание">{{ old('description') }}</textarea>
+                    <x-input-error :messages="$errors->get('description')" class="mt-2 text-main-300" />
                     <x-input-file/>
                     <button class=" hover:bg-soft-accent hover:scale-102 transition-transform duration-200 ease-in-out w-full bg-accent text-main-900 px-2 py-2 rounded-xl text-xl ">Отправить</button>
                 </form>

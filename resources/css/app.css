@@ -14,7 +14,7 @@
     --color-main-400: oklch(70.5% 0.015 286.067);
     --color-main-500: oklch(55.2% 0.016 285.938);
     --color-main-600: oklch(44.2% 0.017 285.786);
-    --color-main-700: oklch(37% 0.013 285.805);
+    --color-main-700: oklch(33.441% 0.00699 285.944);
     --color-main-800: oklch(27.4% 0.006 286.033);
     --color-main-900: oklch(21% 0.006 285.885);
     --color-accent: oklch(63.567% 0.10095 317.445);
@@ -69,8 +69,7 @@ a:hover{
     padding: 20px 200px;
 }
 .create-report{
-    text-align: center;
-    border-radius: 25px;
+    border-radius:10px;
     font-size: 20px;
 }
 .card{
@@ -79,10 +78,10 @@ a:hover{
     border-radius: 20px;
 }
 .modal-card{
-    animation: appearing 0.5s ease-in-out;
+    animation: appearing 0.3s ease-in-out;
 }
 .closing-card{
-    animation: disappearing 0.5s ease-in-out;
+    animation: disappearing 0.3s ease-in-out;
 }
 @keyframes appearing {
     from {

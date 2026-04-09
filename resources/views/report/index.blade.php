@@ -5,7 +5,7 @@
     <div class="w-full flex flex-col gap-6">
         <div class="w-full flex flex-row justify-between mb-2 gap-4">
             <div class="flex items-center justify-center md:justify-normal">
-                <button class="hover:bg-soft-accent hover:scale-102 transition-transform duration-200 ease-in-out create-report bg-accent text-black py-1 px-3">
+                <button class="hover:bg-soft-accent items-center hover:scale-102 transition-transform duration-200 ease-in-out create-report bg-accent text-black py-1.5 px-3">
                     <a href="/reports/create">
                         создать заявление
                     </a>
@@ -16,22 +16,25 @@
             </div>
         </div>
         
-           <div class="w-full grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+           <div class="w-full grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4 gap-6">
                @forelse ($reports as $report)
-            <div class="card hover:scale-102 transition-transform duration-200 ease-in-out flex flex-col gap-2 h-full bg-main-300">
+            <div class="card hover:scale-102 transition-transform duration-200 ease-in-out flex flex-col gap-2 bg-main-300">
                 <div class="justify-self-start grid grid-cols-2 gap-2">
                     <div class="optn h-full text-center flex flex-col justify-center p-2 bg-main-100">
-                        <span>номер авто</span>
-                        <p class=" text-main-900 font-semibold">{{$report->number}}</p>                         
+                        <span class="block text-sm sm:text-sm lg:text-[16px]">номер авто</span>
+                        <p class="text-sm sm:text-sm lg:text-[16px] text-accent font-semibold">{{$report->number}}</p>                         
                     </div>
                     <div class="optn h-full text-center px-3 flex flex-col justify-center bg-main-100">
-                        <span>дата создания</span>
-                        <p class="text-main-900 font-semibold">{{ \Carbon\Carbon::parse($report->created_at)->translatedFormat('j F Y h:i');}}</p>              
+                        <span class="block text-sm sm:text-sm lg:text-[16px]">дата создания</span>
+                        <p class="text-sm sm:text-sm lg:text-[16px] text-accent font-semibold">{{ \Carbon\Carbon::parse($report->created_at)->translatedFormat('j M Y h:i');}}</p>              
                     </div>
                 </div>
                 <div>
                     @isset($report->path_img)
-                        <img src="{{ Storage::url($report->path_img) }}" alt="Фото заявления" class="w-full h-auto rounded-lg cursor-pointer hover:scale-102 transition-transform duration-300 hover:shadow-2xl" onclick="window.open(this.src, '_blank')" >
+                    <div class="overflow-hidden object-cover rounded-lg">
+                        <img src="{{ Storage::url($report->path_img) }}" alt="Фото заявления" class="aspect-3/3.2 w-full cursor-pointer hover:scale-102 transition-transform duration-300 hover:shadow-2xl" onclick="window.open(this.src, '_blank')" >
+                    </div>
+                        
                     @endisset
                 </div>
                 <div class="card-body group flex-1 min-h-21.25 bg-white overflow-hidden ">
@@ -85,19 +88,25 @@
 
     <div id="report-modal" class="fixed inset-0 z-50 hidden items-center justify-center p-4" aria-hidden="true">
         <div class="modal-overlay absolute inset-0 bg-black/60"></div>
-        <div class="modal-card relative z-10 w-full max-w-lg rounded-2xl bg-white p-6 shadow-2xl">
+        <div class="modal-card relative z-10 w-full h-auto max-w-lg rounded-2xl bg-white p-6 shadow-2xl">
             <div class="mb-4 flex items-center justify-between">
                 <h3 class="text-lg font-semibold text-main-900">Текст заявления</h3>
                 <button type="button" id="modal-close-btn" class="rounded-md px-2 py-1 text-main-600 hover:bg-main-100" aria-label="Закрыть модалку">✕</button>
             </div>
-            <p id="modal-description" class="mb-4 max-h-[60vh] overflow-y-auto whitespace-pre-wrap border-l-4 border-l-soft-accent pl-4 rounded-r-md bg-accent/20 text-main-900"></p>
+            <div class="h-auto border-l-4 border-l-soft-accent p-2 pl-2 rounded-r-md bg-accent/20 mb-4">
+              <p id="modal-description" class="overflow-y-auto whitespace-normal text-wrap wrap-break-word  text-main-900"></p>  
+            </div>
+            
             <div id="modal-image-header" class="mb-4 flex items-center justify-between">
                 <h3 class="text-lg font-semibold text-main-900">Фото к заявлению</h3>
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="var(--color-accent)"  class="cursor-pointer bi bi-paperclip" viewBox="0 0 16 16">
                     <path fill-rule="evenodd" d="M4.5 3a2.5 2.5 0 0 1 5 0v9a1.5 1.5 0 0 1-3 0V5a.5.5 0 0 1 1 0v7a.5.5 0 0 0 1 0V3a1.5 1.5 0 1 0-3 0v9a2.5 2.5 0 0 0 5 0V5a.5.5 0 0 1 1 0v7a3.5 3.5 0 1 1-7 0z"/>
                 </svg>
             </div>
-            <img src="" alt="Фото заявления" id="modal-image" class="hidden w-full max-h-[45vh] rounded-lg object-contain">
+            <div class="rounded-lg bg-main-200 py-2 flex items-center justify-center">
+              <img src="" alt="Фото заявления" id="modal-image" class="hidden max-h-[60vh] rounded-lg object-contain">  
+            </div>
+            
             <p id="modal-image-empty" class="hidden rounded-md bg-main-100 px-4 py-3 text-main-600">Фото к этому заявлению не прикреплено.</p>
         </div>
     </div>
@@ -145,7 +154,7 @@
                     modal.setAttribute('aria-hidden', 'true');
                     document.body.classList.remove('overflow-hidden');
                     modalCard.classList.remove('closing-card');
-                }, 500);
+                }, 200);
             };
 
             document.querySelectorAll('.read-more-btn').forEach((btn) => {
