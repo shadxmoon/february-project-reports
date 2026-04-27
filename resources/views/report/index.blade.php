@@ -5,11 +5,10 @@
     <div class="w-full flex flex-col gap-6">
         <div class="w-full flex flex-row justify-between mb-2 gap-4">
             <div class="flex items-center justify-center md:justify-normal">
-                <button class="hover:bg-soft-accent items-center hover:scale-102 transition-transform duration-200 ease-in-out create-report bg-accent text-black py-1.5 px-3">
-                    <a href="/reports/create">
-                        создать заявление
-                    </a>
-                </button>
+                <a href="/reports/create" class="hover:bg-soft-accent items-center hover:scale-102 transition-transform duration-200 ease-in-out create-report bg-accent text-black py-1.5 px-3">
+                    создать заявление
+                </a>
+
             </div>
             <div class="shrink-0">
                 <x-filter :sort=$sort :status=$status></x-filter>
@@ -31,8 +30,8 @@
                 </div>
                 <div>
                     @isset($report->path_img)
-                    <div class="overflow-hidden object-cover rounded-lg">
-                        <img src="{{ Storage::url($report->path_img) }}" alt="Фото заявления" class="aspect-3/3.2 w-full cursor-pointer hover:scale-102 transition-transform duration-300 hover:shadow-2xl" onclick="window.open(this.src, '_blank')" >
+                    <div class="overflow-hidden  aspect-[1] rounded-lg">
+                        <img src="{{ Storage::url($report->path_img) }}" alt="Фото заявления" class="object-cover w-full h-full cursor-pointer hover:scale-102 transition-transform duration-300 hover:shadow-2xl" onclick="window.open(this.src, '_blank')" >
                     </div>
                         
                     @endisset

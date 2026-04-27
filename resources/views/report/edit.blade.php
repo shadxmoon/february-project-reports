@@ -12,7 +12,10 @@
                     @if ($report->path_img)
                         <div class="mb-4 flex flex-col gap-2">
                             <p class="text-main-800">Текущее фото</p>
-                            <img src="{{ Storage::url($report->path_img) }}" alt="Текущее фото заявления" class="max-h-80 w-auto rounded-xl object-cover">
+                            <div class="max-h-80">
+                                <img src="{{ Storage::url($report->path_img) }}" alt="Текущее фото заявления" class="max-h-80 w-auto rounded-xl object-cover">
+                            </div>
+                            
                             <p class="text-sm text-main-400">Выберите новый файл, если хотите заменить текущее фото.</p>
                         </div>
                     @endif
